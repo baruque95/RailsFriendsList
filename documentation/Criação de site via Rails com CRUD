@@ -1,0 +1,55 @@
+	O rails possui diversas ferramentas para criação de aplicações 
+web. A partir de poucos comandos no prompt é possível criar uma
+aplicação com arquitetura MVC e interface CRUD.
+	Primeiro, devemos criar um projeto através do prompt, neste caso
+o Git BASH. O primeiro passo é criar uma pasta onde ficará o projeto.
+Após a criação desta pasta, utiliza-se o comando de criação do projeto,
+que é rails new nome_do_projeto. Com isso, o rails irá criar toda
+a arquitetura MVC do projeto, já com um site base do rails e, no caso
+do BASH, irá criar também um repositório para o projeto.
+	Após isso, deve-se fazer as alterações no layout da página e excluir
+o que se achar necessário. Muitos dos arquivos criados pelo rails não
+vão ser utilizados no nosso projeto. Para ver o site, deve-se ligar
+o servidor do rails pelo puma com o comando rails s. e, então, acessar
+o localhost:3000, que é onde o puma levantou o servidor.
+	Então, com o comando rails g (ou rails generate) controller home index,
+criando os controladores para a página localhost:3000/home/index. Também
+é criada uma rota no arquivo routes. No arquivo routes, podemos adicionar
+o caminho root para home#index, de forma a, quando abrirmos localhost:3000,
+o site abrirá diretamente na página localhost:3000/home/index.
+root 'home#index'
+	Criando esta rota, estaremos mudando a página inicial da aplicação.
+Na mesma pasta de views, existe a pasta layouts, onde haverá o arquivo
+application.html. Neste arquivo, haverá o layout padrão de nossas páginas,
+ou seja, a parte que se mantém em todas as páginas. Em qualquer parte
+deste arquivo, se utilizarmos o comando <%= yield %>, onde <%= %> se trata
+da chave para o embed em ruby, a parte do layout no arquivo com o nome da
+página irá ser utilizado, sendo colocado nesta parte da página padrão.
+	Para criar outras páginas, basta criar um novo arquivo na pasta views >
+home e adicionar no arquivo home_controller.rb o método com nome da nova
+página. Além disso, na página de routes deve-se criar a rota para esta
+página com a linha get 'home/nova_pagina'.
+	Para personalização do nosso site, utilizaremos bootstrap, que é
+adicionado por colar o código do template padrão do bootstrap no nosso
+arquivo application.html.erb, na parte do head. Então, preserva-se a parte
+de javascript embedada também na parte do head do arquivo e mudar os nomes
+da página e o <%= yield %> do body. Após isso, o bootstrap está ativo
+e qualquer mudança é possível de ser feita.
+	Coloca-se o yield dentro de uma div de classe container, que é uma 
+classe do bootstrap, para melhorar a formatação.
+	Após isso, podemos fazer um embed utilizando uma partial. A partial
+se trata de um componente de um site, que é salvo em um arquivo específico
+que, por convenção, é salvo com um nome começando com _, como exemplo 
+_partial. Então, através da linha <%= render 'home/partial'%> chama-se,
+nesta parte do código, a parcial, que irá aparecer em todas as páginas.
+Neste projeto, utiliza-se a parcial _header.html.erb por exemplo, que será
+o cabeçalho do site e também a nossa navbar.
+	Utilizaremos a navbar que preferirmos disponibilizada no site do
+bootstrap. Então, removeremos tudo que não formos usar, deixando apenas
+o necessário. Onde houver links, substituiremos pelo embed do ruby, que
+funciona da seguinte forma: <%= link_to 'Nome do botão', rota, class:"navbar-brand" %>, onde a classe é a mesma do botão do bootstrap
+dentro do <a></a>. Criar-se-á para o botão friends app e about.
+	Depois destes passos, faremos o scaffold juntamente à migração. 
+Estes passos irão criar o modelo do banco de dados e a interface
+CRUD para que possamos adicionar nossos amigos. 
+	
