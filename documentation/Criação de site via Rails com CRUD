@@ -47,15 +47,15 @@ o cabeçalho do site e também a nossa navbar.
 	Utilizaremos a navbar que preferirmos disponibilizada no site do
 bootstrap. Então, removeremos tudo que não formos usar, deixando apenas
 o necessário. Onde houver links, substituiremos pelo embed do ruby, que
-funciona da seguinte forma: <%= link_to 'Nome do botão', rota, class:"navbar-brand" %>, onde a classe é a mesma do botão do bootstrap
-dentro do <a></a>. Criar-se-á para o botão friends app e about.
-	Depois destes passos, faremos o scaffold juntamente à migração. 
-Estes passos irão criar o modelo do banco de dados e a interface
-CRUD para que possamos adicionar nossos amigos. O comando para criar o
-scaffold pelo bash é rails g scaffold nome_da_tabela coluna1:tipo_de_dado
-coluna2:tipo coluna3:tipo coluna4:tipo. Importante perceber que o scaffold
-irá pedir um nome no singular para o nome de tabela, mas isso é detalhe
-e pode ser alterado depois.
+funciona da seguinte forma: <%= link_to 'Nome do botão', rota, class:"navbar-brand" %>,
+onde a classe é a mesma do botão do bootstrap dentro do <a></a>.
+Criar-se-á para o botão friends app e about. Depois destes passos,
+faremos o scaffold juntamente à migração. Estes passos irão criar o modelo
+do banco de dados e a interface CRUD para que possamos adicionar nossos amigos.
+O comando para criar o scaffold pelo bash é rails g scaffold nome_da_tabela
+coluna1:tipo_de_dado coluna2:tipo coluna3:tipo coluna4:tipo. Importante perceber
+que o scaffold irá pedir um nome no singular para o nome de tabela, mas isso é
+detalhe e pode ser alterado depois.
 	O scaffold pode criar um arquivo css, que irá conflitar com o nosso
 bootstrap. É importante deletar o novo arquivo criado, já que já fizemos
 mudanças no bootstrap da nossa página. O scaffold cria uma pasta dentro 
